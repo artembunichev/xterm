@@ -1,0 +1,2 @@
+#!/bin/sh
+./configure CC=tcc --enable-wide-chars --disable-16-color --disable-active-icon --disable-ansi-color --disable-blink-cursor --disable-bold-color --disable-box-chars --disable-color-mode --disable-desktop --disable-doublechars --disable-highlighting --disable-imake --disable-rectangles --disable-rightbar --disable-tek4014 --disable-ziconbeep
