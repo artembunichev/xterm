@@ -642,6 +642,7 @@ extern void TekSimulatePageButton (TekWidget /* tw */, Bool /* reset */);
 extern Bool SendMousePosition (XtermWidget  /* w */, XEvent*  /* event */);
 extern void DiredButton                PROTO_XT_ACTIONS_ARGS;
 extern void DisownSelection (XtermWidget  /* termw */);
+extern void HandleCopySelection        PROTO_XT_ACTIONS_ARGS;
 extern void HandleInsertSelection      PROTO_XT_ACTIONS_ARGS;
 extern void HandleKeyboardSelectEnd    PROTO_XT_ACTIONS_ARGS;
 extern void HandleKeyboardSelectExtend PROTO_XT_ACTIONS_ARGS;

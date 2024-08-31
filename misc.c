@@ -3427,3 +3427,25 @@ xtermVersion(void)
     }
     return result;
 }
+
+/*
+ * Check if the current widget, or any parent, is the VT100 "xterm" widget.
+ */
+XtermWidget
+getXtermWidget(Widget w)
+{
+    XtermWidget xw;
+
+    if (w == 0) {
+	xw = (XtermWidget) CURRENT_EMU();
+	if (!IsXtermWidget(xw)) {
+	    xw = 0;
+	}
+    } else if (IsXtermWidget(w)) {
+	xw = (XtermWidget) w;
+    } else {
+	xw = getXtermWidget(XtParent(w));
+    }
+    TRACE2(("getXtermWidget %p -> %p\n", w, xw));
+    return xw;
+}

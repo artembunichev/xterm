@@ -273,6 +273,7 @@ static XtActionsRec actionsList[] = {
     { "ignore",			HandleIgnore },
     { "insert",			HandleKeyPressed },  /* alias for insert-seven-bit */
     { "insert-eight-bit",	HandleEightBitKeyPressed },
+    { "copy-selection",		HandleCopySelection },
     { "insert-selection",	HandleInsertSelection },
     { "insert-seven-bit",	HandleKeyPressed },
     { "interpret",		HandleInterpret },

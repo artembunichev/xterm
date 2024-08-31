@@ -1687,6 +1687,21 @@ HandleInsertSelection(Widget w,
     }
 }
 
+/*
+ * Copy the selection data to the given target(s).
+ */
+void
+HandleCopySelection(Widget w,
+		    XEvent * event,
+		    String * params,	/* list of targets */
+		    Cardinal *num_params)
+{
+    XtermWidget xw;
+    if ((xw = getXtermWidget(w)) != 0) {
+	SelectSet(xw, event, params, *num_params);
+    }
+}
+
 static SelectUnit
 EvalSelectUnit(TScreen * screen, Time buttonDownTime, SelectUnit defaultUnit)
 {
