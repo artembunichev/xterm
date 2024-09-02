@@ -1277,10 +1277,9 @@ xtermGetSelection(Widget w,
 
     TRACE(("xtermGetSelection\n"));
     params = MapSelections((XtermWidget) w, params, num_params);
-
+    
     XmuInternStrings(XtDisplay(w), params, (Cardinal) 1, &selection);
     cutbuffer = CutBuffer(selection);
-
     TRACE(("Cutbuffer: %d, target: %lu\n", cutbuffer,
 	   targets ? (unsigned long) targets[0] : 0));
 
@@ -1906,7 +1905,7 @@ EndExtend(XtermWidget xw,
 	    TrackText(xw, &zeroCELL, &zeroCELL);
 	}
     }
-    SelectSet(xw, event, params, num_params);
+    /*SelectSet(xw, event, params, num_params);*/
     eventMode = NORMAL;
 }
 
@@ -3399,8 +3398,9 @@ DisownSelection(XtermWidget xw)
     for (i = 0; i < count; i++) {
 	int cutbuffer = CutBuffer(atoms[i]);
 	if (cutbuffer < 0) {
-	    XtDisownSelection((Widget) xw, atoms[i],
+	    /*XtDisownSelection((Widget) xw, atoms[i],
 			      screen->selection_time);
+		*/
 	}
     }
     /*
