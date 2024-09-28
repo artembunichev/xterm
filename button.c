@@ -1695,9 +1695,9 @@ HandleCopySelection(Widget w,
 		    String * params,	/* list of targets */
 		    Cardinal *num_params)
 {
-    XtermWidget xw;
-    if ((xw = getXtermWidget(w)) != 0) {
-	SelectSet(xw, event, params, *num_params);
+	if (IsXtermWidget(w)) {
+		XtermWidget xw = (XtermWidget) w;
+		SelectSet(xw, event, params, *num_params);
     }
 }
 

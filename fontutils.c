@@ -1613,16 +1613,6 @@ xtermComputeFontInfo(XtermWidget xw,
 					(void *) 0);
 			wbold = xtermOpenXft(dpy, pat, "wide-bold");
 
-			if (screen->italicULMode) {
-			    XftPatternBuild(pat,
-					    XFT_FAMILY, XftTypeString, face_name,
-					    XFT_SIZE, XftTypeDouble, face_size,
-					    XFT_SPACING, XftTypeInteger, XFT_MONO,
-					    XFT_CHAR_WIDTH, XftTypeInteger, char_width,
-					    XFT_SLANT, XftTypeInteger, XFT_SLANT_ITALIC,
-					    (void *) 0);
-			    wital = xtermOpenXft(dpy, pat, "wide-italic");
-			}
 		    }
 		    XftPatternDestroy(pat);
 		}

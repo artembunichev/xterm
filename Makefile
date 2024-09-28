@@ -35,7 +35,7 @@ o		= .o
 
 CC		= tcc
 CPP		= tcc -E
-AWK		= mawk
+AWK		= nawk
 LINK		= $(CC) $(CFLAGS)
 
 LN_S		= ln -s
@@ -52,10 +52,10 @@ EXTRA_CFLAGS	=
 EXTRA_CPPFLAGS	= 
 EXTRA_LOADFLAGS	= 
 
-CPPFLAGS	= -I. -I$(srcdir) -DHAVE_CONFIG_H  -DNARROWPROTO=1 -DFUNCPROTO=15 -DOSMAJORVERSION=5 -DOSMINORVERSION=10  -D_GNU_SOURCE $(EXTRA_CPPFLAGS)
+CPPFLAGS	= -I. -I$(srcdir) -DHAVE_CONFIG_H  -I/usr/local/include -D_THREAD_SAFE -I/usr/local/include/freetype2 -I/usr/local/include/libpng16  -DNARROWPROTO=1 -DFUNCPROTO=15 -DOSMAJORVERSION=13 -DOSMINORVERSION=4  -D_BSD_TYPES -D__BSD_VISIBLE -D_POSIX_C_SOURCE=200112L -D_XOPEN_SOURCE=600 $(EXTRA_CPPFLAGS)
 CFLAGS		=  $(EXTRA_CFLAGS)
 LDFLAGS		=  
-LIBS		= -lXaw -lXmu -lXext -lXt  -lSM -lICE -lX11  -ltermcap  
+LIBS		=  -L/usr/local/lib -lXft -lutil -lXaw -lXmu -lXext -lXt  -lSM -lICE -lX11  -ltermcap   -lfontconfig
 
 prefix		= /usr/local
 exec_prefix	= ${prefix}
@@ -147,7 +147,7 @@ binary_uxterm = $(actual_uxterm)
 install \
 install-bin \
 install-full :: xterm$x resize$x $(BINDIR)
-	$(SHELL) $(srcdir)/sinstall.sh  "$(INSTALL_PROGRAM)" xterm$x  /usr/local/bin/xterm $(BINDIR)/$(binary_xterm)
+	$(SHELL) $(srcdir)/sinstall.sh  "$(INSTALL_PROGRAM)" xterm$x   $(BINDIR)/$(binary_xterm)
 #	$(INSTALL_PROGRAM) xterm$x $(BINDIR)/$(binary_xterm)
 	$(INSTALL_PROGRAM) -m  755 resize$x $(BINDIR)/$(binary_resize)
 	@$(SHELL) -c 'echo "... installing $(BINDIR)/$(binary_uxterm)"; \
@@ -190,8 +190,8 @@ install ::
 	@echo 'Completed installation of executables and documentation.'
 	@echo 'Use "make install-ti" to install terminfo description.'
 
-TERMINFO_DIR = $(DESTDIR)/usr/lib/terminfo
-SET_TERMINFO = TERMINFO=$(TERMINFO_DIR)
+TERMINFO_DIR = 
+SET_TERMINFO = 
 
 install-full \
 install-ti :: $(TERMINFO_DIR)

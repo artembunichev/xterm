@@ -262,29 +262,29 @@ s,@PACKAGE_BUGREPORT@,,;t t
 s,@build_alias@,,;t t
 s,@host_alias@,,;t t
 s,@target_alias@,,;t t
-s,@ECHO_C@,\c,;t t
-s,@ECHO_N@,,;t t
+s,@ECHO_C@,,;t t
+s,@ECHO_N@,-n,;t t
 s,@ECHO_T@,,;t t
 s,@PATH_SEPARATOR@,:,;t t
 s,@DEFS@,-DHAVE_CONFIG_H,;t t
-s,@LIBS@,-lXaw -lXmu -lXext -lXt  -lSM -lICE -lX11  -ltermcap  ,;t t
-s,@build@,x86_64-unknown-linux-gnu,;t t
+s,@LIBS@, -L/usr/local/lib -lXft -lutil -lXaw -lXmu -lXext -lXt  -lSM -lICE -lX11  -ltermcap  ,;t t
+s,@build@,x86_64-unknown-freebsd13.4,;t t
 s,@build_cpu@,x86_64,;t t
 s,@build_vendor@,unknown,;t t
-s,@build_os@,linux-gnu,;t t
-s,@host@,x86_64-unknown-linux-gnu,;t t
+s,@build_os@,freebsd13.4,;t t
+s,@host@,x86_64-unknown-freebsd13.4,;t t
 s,@host_cpu@,x86_64,;t t
 s,@host_vendor@,unknown,;t t
-s,@host_os@,linux-gnu,;t t
+s,@host_os@,freebsd13.4,;t t
 s,@CC@,tcc,;t t
 s,@CFLAGS@,,;t t
 s,@LDFLAGS@, ,;t t
-s,@CPPFLAGS@, -DNARROWPROTO=1 -DFUNCPROTO=15 -DOSMAJORVERSION=5 -DOSMINORVERSION=10  -D_GNU_SOURCE,;t t
+s,@CPPFLAGS@, -I/usr/local/include -D_THREAD_SAFE -I/usr/local/include/freetype2 -I/usr/local/include/libpng16  -DNARROWPROTO=1 -DFUNCPROTO=15 -DOSMAJORVERSION=13 -DOSMINORVERSION=4  -D_BSD_TYPES -D__BSD_VISIBLE -D_POSIX_C_SOURCE=200112L -D_XOPEN_SOURCE=600,;t t
 s,@ac_ct_CC@,tcc,;t t
 s,@EXEEXT@,,;t t
 s,@OBJEXT@,o,;t t
 s,@CPP@,tcc -E,;t t
-s,@AWK@,mawk,;t t
+s,@AWK@,nawk,;t t
 s,@INSTALL_PROGRAM@,${INSTALL},;t t
 s,@INSTALL_SCRIPT@,${INSTALL},;t t
 s,@INSTALL_DATA@,${INSTALL} -m 644,;t t
@@ -294,7 +294,7 @@ s,@EXTRA_CPPFLAGS@,,;t t
 s,@PROG_EXT@,,;t t
 s,@appsdir@,'$(exec_prefix)/lib/X11/app-defaults',;t t
 s,@no_appsdir@,,;t t
-s,@XTERM_PATH@,/usr/local/bin/xterm,;t t
+s,@XTERM_PATH@,,;t t
 s,@XTERM_SYMLINK@,NONE,;t t
 s,@SINSTALL_OPTS@,,;t t
 s,@X_CFLAGS@,,;t t
@@ -302,13 +302,13 @@ s,@X_PRE_LIBS@, -lSM -lICE,;t t
 s,@X_LIBS@,,;t t
 s,@X_EXTRA_LIBS@,,;t t
 s,@IMAKE@,,;t t
-s,@IMAKE_CFLAGS@,-DNARROWPROTO=1 -DFUNCPROTO=15 -DOSMAJORVERSION=5 -DOSMINORVERSION=10 ,;t t
+s,@IMAKE_CFLAGS@,-DNARROWPROTO=1 -DFUNCPROTO=15 -DOSMAJORVERSION=13 -DOSMINORVERSION=4 ,;t t
 s,@IMAKE_LOADFLAGS@,,;t t
-s,@TERMINFO_DIR@,$(DESTDIR)/usr/lib/terminfo,;t t
-s,@SET_TERMINFO@,TERMINFO=$(TERMINFO_DIR),;t t
-s,@FREETYPE_PKG_CONFIG@,/usr/bin/pkg-config,;t t
-s,@FREETYPE_XFT_CONFIG@,none,;t t
-s,@FREETYPE_OLD_CONFIG@,none,;t t
+s,@TERMINFO_DIR@,,;t t
+s,@SET_TERMINFO@,,;t t
+s,@FREETYPE_PKG_CONFIG@,/usr/local/bin/pkg-config,;t t
+s,@FREETYPE_XFT_CONFIG@,,;t t
+s,@FREETYPE_OLD_CONFIG@,,;t t
 s,@XRENDERFONT@,,;t t
 s,@HAVE_TYPE_FCCHAR32@,,;t t
 s,@HAVE_TYPE_XFTCHARSPEC@,,;t t
@@ -573,7 +573,7 @@ echo "$as_me: error: cannot find input file: $f" >&2;}
 /^[ 	]*#[ 	]*define/!b
 t clr
 : clr
-${ac_dA}SYSTEM_NAME${ac_dB}SYSTEM_NAME${ac_dC}"linux-gnu"${ac_dD}
+${ac_dA}SYSTEM_NAME${ac_dB}SYSTEM_NAME${ac_dC}"freebsd13.4"${ac_dD}
 ${ac_dA}CC_HAS_PROTOS${ac_dB}CC_HAS_PROTOS${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_STDLIB_H${ac_dB}HAVE_STDLIB_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_TERMIOS_H${ac_dB}HAVE_TERMIOS_H${ac_dC}1${ac_dD}
@@ -604,13 +604,13 @@ ${ac_dA}HAVE_TCGETATTR${ac_dB}HAVE_TCGETATTR${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_WAITPID${ac_dB}HAVE_WAITPID${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_WCSWIDTH${ac_dB}HAVE_WCSWIDTH${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_WCWIDTH${ac_dB}HAVE_WCWIDTH${ac_dC}1${ac_dD}
-${ac_dA}HAVE_LASTLOG_H${ac_dB}HAVE_LASTLOG_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_PATHS_H${ac_dB}HAVE_PATHS_H${ac_dC}1${ac_dD}
-${ac_dA}USE_LASTLOG${ac_dB}USE_LASTLOG${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_UTMP${ac_dB}HAVE_UTMP${ac_dC}1${ac_dD}
+${ac_dA}UTMPX_FOR_UTMP${ac_dB}UTMPX_FOR_UTMP${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_UTMP_UT_HOST${ac_dB}HAVE_UTMP_UT_HOST${ac_dC}1${ac_dD}
-${ac_dA}HAVE_UTMP_UT_XSTATUS${ac_dB}HAVE_UTMP_UT_XSTATUS${ac_dC}1${ac_dD}
-${ac_dA}ut_xstatus${ac_dB}ut_xstatus${ac_dC}ut_exit.e_exit${ac_dD}
+${ac_dA}ut_name${ac_dB}ut_name${ac_dC}ut_user${ac_dD}
+${ac_dA}HAVE_UTMP_UT_XTIME${ac_dB}HAVE_UTMP_UT_XTIME${ac_dC}1${ac_dD}
+${ac_dA}ut_xtime${ac_dB}ut_xtime${ac_dC}ut_tv.tv_sec${ac_dD}
 CEOF
   sed -f $tmp/defines.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -620,15 +620,10 @@ CEOF
 /^[ 	]*#[ 	]*define/!b
 t clr
 : clr
-${ac_dA}HAVE_UTMP_UT_XTIME${ac_dB}HAVE_UTMP_UT_XTIME${ac_dC}1${ac_dD}
-${ac_dA}HAVE_UTMP_UT_SESSION${ac_dB}HAVE_UTMP_UT_SESSION${ac_dC}1${ac_dD}
 ${ac_dA}USE_SYSV_UTMP${ac_dB}USE_SYSV_UTMP${ac_dC}1${ac_dD}
-${ac_dA}HAVE_LASTLOG_H${ac_dB}HAVE_LASTLOG_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_SYS_PARAM_H${ac_dB}HAVE_SYS_PARAM_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_POSIX_SAVED_IDS${ac_dB}HAVE_POSIX_SAVED_IDS${ac_dC}1${ac_dD}
-${ac_dA}HAVE_TERMCAP_H${ac_dB}HAVE_TERMCAP_H${ac_dC}1${ac_dD}
-${ac_dA}USE_TERMINFO${ac_dB}USE_TERMINFO${ac_dC}1${ac_dD}
-${ac_dA}XTERM_PATH_PATH${ac_dB}XTERM_PATH_PATH${ac_dC}"/usr/local/bin/xterm"${ac_dD}
+${ac_dA}USE_TERMCAP${ac_dB}USE_TERMCAP${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_ERRNO${ac_dB}HAVE_ERRNO${ac_dC}1${ac_dD}
 ${ac_dA}TTY_GROUP_NAME${ac_dB}TTY_GROUP_NAME${ac_dC}"tty"${ac_dD}
 ${ac_dA}USE_TTY_GROUP${ac_dB}USE_TTY_GROUP${ac_dC}1${ac_dD}
@@ -644,20 +639,25 @@ ${ac_dA}HAVE_X11_DECKEYSYM_H${ac_dB}HAVE_X11_DECKEYSYM_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_X11_SUNKEYSYM_H${ac_dB}HAVE_X11_SUNKEYSYM_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_X11_XPOLL_H${ac_dB}HAVE_X11_XPOLL_H${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_LIB_XAW${ac_dB}HAVE_LIB_XAW${ac_dC}1${ac_dD}
-${ac_dA}HAVE_GRANTPT${ac_dB}HAVE_GRANTPT${ac_dC}1${ac_dD}
+${ac_dA}HAVE_LIBUTIL${ac_dB}HAVE_LIBUTIL${ac_dC}1${ac_dD}
+${ac_dA}HAVE_XKB_BELL_EXT${ac_dB}HAVE_XKB_BELL_EXT${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_XUTF8LOOKUPSTRING${ac_dB}HAVE_XUTF8LOOKUPSTRING${ac_dC}1${ac_dD}
 ${ac_dA}DFT_DECID${ac_dB}DFT_DECID${ac_dC}"100"${ac_dD}
 ${ac_dA}DFT_TERMTYPE${ac_dB}DFT_TERMTYPE${ac_dC}"xterm"${ac_dD}
 ${ac_dA}NO_ACTIVE_ICON${ac_dB}NO_ACTIVE_ICON${ac_dC}1${ac_dD}
 ${ac_dA}OPT_ISO_COLORS${ac_dB}OPT_ISO_COLORS${ac_dC}0${ac_dD}
 ${ac_dA}OPT_BLINK_CURS${ac_dB}OPT_BLINK_CURS${ac_dC}0${ac_dD}
-${ac_dA}OPT_BROKEN_OSC${ac_dB}OPT_BROKEN_OSC${ac_dC}1${ac_dD}
+${ac_dA}OPT_BROKEN_OSC${ac_dB}OPT_BROKEN_OSC${ac_dC}0${ac_dD}
 ${ac_dA}OPT_BROKEN_ST${ac_dB}OPT_BROKEN_ST${ac_dC}0${ac_dD}
 ${ac_dA}OPT_HIGHLIGHT_COLOR${ac_dB}OPT_HIGHLIGHT_COLOR${ac_dC}0${ac_dD}
 ${ac_dA}OPT_DEC_CHRSET${ac_dB}OPT_DEC_CHRSET${ac_dC}0${ac_dD}
+${ac_dA}XRENDERFONT${ac_dB}XRENDERFONT${ac_dC}1${ac_dD}
 ${ac_dA}OPT_PASTE64${ac_dB}OPT_PASTE64${ac_dC}0${ac_dD}
 ${ac_dA}OPT_PTY_HANDSHAKE${ac_dB}OPT_PTY_HANDSHAKE${ac_dC}1${ac_dD}
 ${ac_dA}HAVE_REGEX_H_FUNCS${ac_dB}HAVE_REGEX_H_FUNCS${ac_dC}1${ac_dD}
+${ac_dA}OPT_SELECT_REGEX${ac_dB}OPT_SELECT_REGEX${ac_dC}1${ac_dD}
+${ac_dA}OPT_TEK4014${ac_dB}OPT_TEK4014${ac_dC}0${ac_dD}
+${ac_dA}OPT_WIDE_CHARS${ac_dB}OPT_WIDE_CHARS${ac_dC}1${ac_dD}
 CEOF
   sed -f $tmp/defines.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -667,9 +667,6 @@ CEOF
 /^[ 	]*#[ 	]*define/!b
 t clr
 : clr
-${ac_dA}OPT_SELECT_REGEX${ac_dB}OPT_SELECT_REGEX${ac_dC}1${ac_dD}
-${ac_dA}OPT_TEK4014${ac_dB}OPT_TEK4014${ac_dC}0${ac_dD}
-${ac_dA}OPT_WIDE_CHARS${ac_dB}OPT_WIDE_CHARS${ac_dC}1${ac_dD}
 ${ac_dA}OPT_ZICONBEEP${ac_dB}OPT_ZICONBEEP${ac_dC}0${ac_dD}
 CEOF
   sed -f $tmp/defines.sed $tmp/in >$tmp/out
@@ -683,7 +680,7 @@ CEOF
 /^[ 	]*#[ 	]*undef/!b
 t clr
 : clr
-${ac_uA}SYSTEM_NAME${ac_uB}SYSTEM_NAME${ac_uC}"linux-gnu"${ac_uD}
+${ac_uA}SYSTEM_NAME${ac_uB}SYSTEM_NAME${ac_uC}"freebsd13.4"${ac_uD}
 ${ac_uA}CC_HAS_PROTOS${ac_uB}CC_HAS_PROTOS${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_STDLIB_H${ac_uB}HAVE_STDLIB_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_TERMIOS_H${ac_uB}HAVE_TERMIOS_H${ac_uC}1${ac_uD}
@@ -714,13 +711,13 @@ ${ac_uA}HAVE_TCGETATTR${ac_uB}HAVE_TCGETATTR${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_WAITPID${ac_uB}HAVE_WAITPID${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_WCSWIDTH${ac_uB}HAVE_WCSWIDTH${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_WCWIDTH${ac_uB}HAVE_WCWIDTH${ac_uC}1${ac_uD}
-${ac_uA}HAVE_LASTLOG_H${ac_uB}HAVE_LASTLOG_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_PATHS_H${ac_uB}HAVE_PATHS_H${ac_uC}1${ac_uD}
-${ac_uA}USE_LASTLOG${ac_uB}USE_LASTLOG${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_UTMP${ac_uB}HAVE_UTMP${ac_uC}1${ac_uD}
+${ac_uA}UTMPX_FOR_UTMP${ac_uB}UTMPX_FOR_UTMP${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_UTMP_UT_HOST${ac_uB}HAVE_UTMP_UT_HOST${ac_uC}1${ac_uD}
-${ac_uA}HAVE_UTMP_UT_XSTATUS${ac_uB}HAVE_UTMP_UT_XSTATUS${ac_uC}1${ac_uD}
-${ac_uA}ut_xstatus${ac_uB}ut_xstatus${ac_uC}ut_exit.e_exit${ac_uD}
+${ac_uA}ut_name${ac_uB}ut_name${ac_uC}ut_user${ac_uD}
+${ac_uA}HAVE_UTMP_UT_XTIME${ac_uB}HAVE_UTMP_UT_XTIME${ac_uC}1${ac_uD}
+${ac_uA}ut_xtime${ac_uB}ut_xtime${ac_uC}ut_tv.tv_sec${ac_uD}
 CEOF
   sed -f $tmp/undefs.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -730,15 +727,10 @@ CEOF
 /^[ 	]*#[ 	]*undef/!b
 t clr
 : clr
-${ac_uA}HAVE_UTMP_UT_XTIME${ac_uB}HAVE_UTMP_UT_XTIME${ac_uC}1${ac_uD}
-${ac_uA}HAVE_UTMP_UT_SESSION${ac_uB}HAVE_UTMP_UT_SESSION${ac_uC}1${ac_uD}
 ${ac_uA}USE_SYSV_UTMP${ac_uB}USE_SYSV_UTMP${ac_uC}1${ac_uD}
-${ac_uA}HAVE_LASTLOG_H${ac_uB}HAVE_LASTLOG_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_SYS_PARAM_H${ac_uB}HAVE_SYS_PARAM_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_POSIX_SAVED_IDS${ac_uB}HAVE_POSIX_SAVED_IDS${ac_uC}1${ac_uD}
-${ac_uA}HAVE_TERMCAP_H${ac_uB}HAVE_TERMCAP_H${ac_uC}1${ac_uD}
-${ac_uA}USE_TERMINFO${ac_uB}USE_TERMINFO${ac_uC}1${ac_uD}
-${ac_uA}XTERM_PATH_PATH${ac_uB}XTERM_PATH_PATH${ac_uC}"/usr/local/bin/xterm"${ac_uD}
+${ac_uA}USE_TERMCAP${ac_uB}USE_TERMCAP${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_ERRNO${ac_uB}HAVE_ERRNO${ac_uC}1${ac_uD}
 ${ac_uA}TTY_GROUP_NAME${ac_uB}TTY_GROUP_NAME${ac_uC}"tty"${ac_uD}
 ${ac_uA}USE_TTY_GROUP${ac_uB}USE_TTY_GROUP${ac_uC}1${ac_uD}
@@ -754,20 +746,25 @@ ${ac_uA}HAVE_X11_DECKEYSYM_H${ac_uB}HAVE_X11_DECKEYSYM_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_X11_SUNKEYSYM_H${ac_uB}HAVE_X11_SUNKEYSYM_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_X11_XPOLL_H${ac_uB}HAVE_X11_XPOLL_H${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_LIB_XAW${ac_uB}HAVE_LIB_XAW${ac_uC}1${ac_uD}
-${ac_uA}HAVE_GRANTPT${ac_uB}HAVE_GRANTPT${ac_uC}1${ac_uD}
+${ac_uA}HAVE_LIBUTIL${ac_uB}HAVE_LIBUTIL${ac_uC}1${ac_uD}
+${ac_uA}HAVE_XKB_BELL_EXT${ac_uB}HAVE_XKB_BELL_EXT${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_XUTF8LOOKUPSTRING${ac_uB}HAVE_XUTF8LOOKUPSTRING${ac_uC}1${ac_uD}
 ${ac_uA}DFT_DECID${ac_uB}DFT_DECID${ac_uC}"100"${ac_uD}
 ${ac_uA}DFT_TERMTYPE${ac_uB}DFT_TERMTYPE${ac_uC}"xterm"${ac_uD}
 ${ac_uA}NO_ACTIVE_ICON${ac_uB}NO_ACTIVE_ICON${ac_uC}1${ac_uD}
 ${ac_uA}OPT_ISO_COLORS${ac_uB}OPT_ISO_COLORS${ac_uC}0${ac_uD}
 ${ac_uA}OPT_BLINK_CURS${ac_uB}OPT_BLINK_CURS${ac_uC}0${ac_uD}
-${ac_uA}OPT_BROKEN_OSC${ac_uB}OPT_BROKEN_OSC${ac_uC}1${ac_uD}
+${ac_uA}OPT_BROKEN_OSC${ac_uB}OPT_BROKEN_OSC${ac_uC}0${ac_uD}
 ${ac_uA}OPT_BROKEN_ST${ac_uB}OPT_BROKEN_ST${ac_uC}0${ac_uD}
 ${ac_uA}OPT_HIGHLIGHT_COLOR${ac_uB}OPT_HIGHLIGHT_COLOR${ac_uC}0${ac_uD}
 ${ac_uA}OPT_DEC_CHRSET${ac_uB}OPT_DEC_CHRSET${ac_uC}0${ac_uD}
+${ac_uA}XRENDERFONT${ac_uB}XRENDERFONT${ac_uC}1${ac_uD}
 ${ac_uA}OPT_PASTE64${ac_uB}OPT_PASTE64${ac_uC}0${ac_uD}
 ${ac_uA}OPT_PTY_HANDSHAKE${ac_uB}OPT_PTY_HANDSHAKE${ac_uC}1${ac_uD}
 ${ac_uA}HAVE_REGEX_H_FUNCS${ac_uB}HAVE_REGEX_H_FUNCS${ac_uC}1${ac_uD}
+${ac_uA}OPT_SELECT_REGEX${ac_uB}OPT_SELECT_REGEX${ac_uC}1${ac_uD}
+${ac_uA}OPT_TEK4014${ac_uB}OPT_TEK4014${ac_uC}0${ac_uD}
+${ac_uA}OPT_WIDE_CHARS${ac_uB}OPT_WIDE_CHARS${ac_uC}1${ac_uD}
 CEOF
   sed -f $tmp/undefs.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -777,11 +774,8 @@ CEOF
 /^[ 	]*#[ 	]*undef/!b
 t clr
 : clr
-${ac_uA}OPT_SELECT_REGEX${ac_uB}OPT_SELECT_REGEX${ac_uC}1${ac_uD}
-${ac_uA}OPT_TEK4014${ac_uB}OPT_TEK4014${ac_uC}0${ac_uD}
-${ac_uA}OPT_WIDE_CHARS${ac_uB}OPT_WIDE_CHARS${ac_uC}1${ac_uD}
 ${ac_uA}OPT_ZICONBEEP${ac_uB}OPT_ZICONBEEP${ac_uC}0${ac_uD}
-${ac_iA}SYSTEM_NAME${ac_iB}SYSTEM_NAME${ac_iC}"linux-gnu"${ac_iD}
+${ac_iA}SYSTEM_NAME${ac_iB}SYSTEM_NAME${ac_iC}"freebsd13.4"${ac_iD}
 ${ac_iA}CC_HAS_PROTOS${ac_iB}CC_HAS_PROTOS${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_STDLIB_H${ac_iB}HAVE_STDLIB_H${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_TERMIOS_H${ac_iB}HAVE_TERMIOS_H${ac_iC}1${ac_iD}
@@ -812,9 +806,12 @@ ${ac_iA}HAVE_TCGETATTR${ac_iB}HAVE_TCGETATTR${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_WAITPID${ac_iB}HAVE_WAITPID${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_WCSWIDTH${ac_iB}HAVE_WCSWIDTH${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_WCWIDTH${ac_iB}HAVE_WCWIDTH${ac_iC}1${ac_iD}
-${ac_iA}HAVE_LASTLOG_H${ac_iB}HAVE_LASTLOG_H${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_PATHS_H${ac_iB}HAVE_PATHS_H${ac_iC}1${ac_iD}
-${ac_iA}USE_LASTLOG${ac_iB}USE_LASTLOG${ac_iC}1${ac_iD}
+${ac_iA}HAVE_UTMP${ac_iB}HAVE_UTMP${ac_iC}1${ac_iD}
+${ac_iA}UTMPX_FOR_UTMP${ac_iB}UTMPX_FOR_UTMP${ac_iC}1${ac_iD}
+${ac_iA}HAVE_UTMP_UT_HOST${ac_iB}HAVE_UTMP_UT_HOST${ac_iC}1${ac_iD}
+${ac_iA}ut_name${ac_iB}ut_name${ac_iC}ut_user${ac_iD}
+${ac_iA}HAVE_UTMP_UT_XTIME${ac_iB}HAVE_UTMP_UT_XTIME${ac_iC}1${ac_iD}
 CEOF
   sed -f $tmp/undefs.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -824,19 +821,11 @@ CEOF
 /^[ 	]*#[ 	]*undef/!b
 t clr
 : clr
-${ac_iA}HAVE_UTMP${ac_iB}HAVE_UTMP${ac_iC}1${ac_iD}
-${ac_iA}HAVE_UTMP_UT_HOST${ac_iB}HAVE_UTMP_UT_HOST${ac_iC}1${ac_iD}
-${ac_iA}HAVE_UTMP_UT_XSTATUS${ac_iB}HAVE_UTMP_UT_XSTATUS${ac_iC}1${ac_iD}
-${ac_iA}ut_xstatus${ac_iB}ut_xstatus${ac_iC}ut_exit.e_exit${ac_iD}
-${ac_iA}HAVE_UTMP_UT_XTIME${ac_iB}HAVE_UTMP_UT_XTIME${ac_iC}1${ac_iD}
-${ac_iA}HAVE_UTMP_UT_SESSION${ac_iB}HAVE_UTMP_UT_SESSION${ac_iC}1${ac_iD}
+${ac_iA}ut_xtime${ac_iB}ut_xtime${ac_iC}ut_tv.tv_sec${ac_iD}
 ${ac_iA}USE_SYSV_UTMP${ac_iB}USE_SYSV_UTMP${ac_iC}1${ac_iD}
-${ac_iA}HAVE_LASTLOG_H${ac_iB}HAVE_LASTLOG_H${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_SYS_PARAM_H${ac_iB}HAVE_SYS_PARAM_H${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_POSIX_SAVED_IDS${ac_iB}HAVE_POSIX_SAVED_IDS${ac_iC}1${ac_iD}
-${ac_iA}HAVE_TERMCAP_H${ac_iB}HAVE_TERMCAP_H${ac_iC}1${ac_iD}
-${ac_iA}USE_TERMINFO${ac_iB}USE_TERMINFO${ac_iC}1${ac_iD}
-${ac_iA}XTERM_PATH_PATH${ac_iB}XTERM_PATH_PATH${ac_iC}"/usr/local/bin/xterm"${ac_iD}
+${ac_iA}USE_TERMCAP${ac_iB}USE_TERMCAP${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_ERRNO${ac_iB}HAVE_ERRNO${ac_iC}1${ac_iD}
 ${ac_iA}TTY_GROUP_NAME${ac_iB}TTY_GROUP_NAME${ac_iC}"tty"${ac_iD}
 ${ac_iA}USE_TTY_GROUP${ac_iB}USE_TTY_GROUP${ac_iC}1${ac_iD}
@@ -852,16 +841,24 @@ ${ac_iA}HAVE_X11_DECKEYSYM_H${ac_iB}HAVE_X11_DECKEYSYM_H${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_X11_SUNKEYSYM_H${ac_iB}HAVE_X11_SUNKEYSYM_H${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_X11_XPOLL_H${ac_iB}HAVE_X11_XPOLL_H${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_LIB_XAW${ac_iB}HAVE_LIB_XAW${ac_iC}1${ac_iD}
-${ac_iA}HAVE_GRANTPT${ac_iB}HAVE_GRANTPT${ac_iC}1${ac_iD}
+${ac_iA}HAVE_LIBUTIL${ac_iB}HAVE_LIBUTIL${ac_iC}1${ac_iD}
+${ac_iA}HAVE_XKB_BELL_EXT${ac_iB}HAVE_XKB_BELL_EXT${ac_iC}1${ac_iD}
 ${ac_iA}HAVE_XUTF8LOOKUPSTRING${ac_iB}HAVE_XUTF8LOOKUPSTRING${ac_iC}1${ac_iD}
 ${ac_iA}DFT_DECID${ac_iB}DFT_DECID${ac_iC}"100"${ac_iD}
 ${ac_iA}DFT_TERMTYPE${ac_iB}DFT_TERMTYPE${ac_iC}"xterm"${ac_iD}
 ${ac_iA}NO_ACTIVE_ICON${ac_iB}NO_ACTIVE_ICON${ac_iC}1${ac_iD}
 ${ac_iA}OPT_ISO_COLORS${ac_iB}OPT_ISO_COLORS${ac_iC}0${ac_iD}
 ${ac_iA}OPT_BLINK_CURS${ac_iB}OPT_BLINK_CURS${ac_iC}0${ac_iD}
-${ac_iA}OPT_BROKEN_OSC${ac_iB}OPT_BROKEN_OSC${ac_iC}1${ac_iD}
+${ac_iA}OPT_BROKEN_OSC${ac_iB}OPT_BROKEN_OSC${ac_iC}0${ac_iD}
 ${ac_iA}OPT_BROKEN_ST${ac_iB}OPT_BROKEN_ST${ac_iC}0${ac_iD}
 ${ac_iA}OPT_HIGHLIGHT_COLOR${ac_iB}OPT_HIGHLIGHT_COLOR${ac_iC}0${ac_iD}
+${ac_iA}OPT_DEC_CHRSET${ac_iB}OPT_DEC_CHRSET${ac_iC}0${ac_iD}
+${ac_iA}XRENDERFONT${ac_iB}XRENDERFONT${ac_iC}1${ac_iD}
+${ac_iA}OPT_PASTE64${ac_iB}OPT_PASTE64${ac_iC}0${ac_iD}
+${ac_iA}OPT_PTY_HANDSHAKE${ac_iB}OPT_PTY_HANDSHAKE${ac_iC}1${ac_iD}
+${ac_iA}HAVE_REGEX_H_FUNCS${ac_iB}HAVE_REGEX_H_FUNCS${ac_iC}1${ac_iD}
+${ac_iA}OPT_SELECT_REGEX${ac_iB}OPT_SELECT_REGEX${ac_iC}1${ac_iD}
+${ac_iA}OPT_TEK4014${ac_iB}OPT_TEK4014${ac_iC}0${ac_iD}
 CEOF
   sed -f $tmp/undefs.sed $tmp/in >$tmp/out
   rm -f $tmp/in
@@ -871,12 +868,6 @@ CEOF
 /^[ 	]*#[ 	]*undef/!b
 t clr
 : clr
-${ac_iA}OPT_DEC_CHRSET${ac_iB}OPT_DEC_CHRSET${ac_iC}0${ac_iD}
-${ac_iA}OPT_PASTE64${ac_iB}OPT_PASTE64${ac_iC}0${ac_iD}
-${ac_iA}OPT_PTY_HANDSHAKE${ac_iB}OPT_PTY_HANDSHAKE${ac_iC}1${ac_iD}
-${ac_iA}HAVE_REGEX_H_FUNCS${ac_iB}HAVE_REGEX_H_FUNCS${ac_iC}1${ac_iD}
-${ac_iA}OPT_SELECT_REGEX${ac_iB}OPT_SELECT_REGEX${ac_iC}1${ac_iD}
-${ac_iA}OPT_TEK4014${ac_iB}OPT_TEK4014${ac_iC}0${ac_iD}
 ${ac_iA}OPT_WIDE_CHARS${ac_iB}OPT_WIDE_CHARS${ac_iC}1${ac_iD}
 ${ac_iA}OPT_ZICONBEEP${ac_iB}OPT_ZICONBEEP${ac_iC}0${ac_iD}
 s,^[ 	]*#[ 	]*undef[ 	][ 	]*[a-zA-Z_][a-zA-Z_0-9]*,/* & */,
